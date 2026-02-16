@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPro Academy - Learn. Grow. Succeed.</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #f8fafc; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Navbar */
+        nav { background: rgba(15, 23, 42, 0.95); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #3b82f6; text-decoration: none; }
+        .logo span { color: #f8fafc; }
+        .nav-links a { color: #94a3b8; text-decoration: none; margin-left: 25px; font-size: 0.95rem; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: #3b82f6; }
+        
+        /* Hero */
+        .hero { padding: 150px 0 80px; min-height: 100vh; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
+        .hero h1 span { color: #3b82f6; }
+        .hero p { color: #94a3b8; font-size: 1.1rem; margin-bottom: 30px; }
+        .badge { display: inline-block; background: rgba(59, 130, 246, 0.15); color: #60a5fa; padding: 8px 16px; border-radius: 50px; font-size: 0.85rem; margin-bottom: 20px; }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: 0.3s; border: none; cursor: pointer; }
+        .btn-primary { background: #3b82f6; color: white; }
+        .btn-primary:hover { background: #2563eb; transform: translateY(-2px); }
+        .btn-outline { border: 2px solid #475569; color: #f8fafc; margin-left: 15px; }
+        .btn-outline:hover { border-color: #3b82f6; color: #3b82f6; }
+        
+        /* Stats */
+        .stats { padding: 60px 0; text-align: center; }
+        .stats h2 { font-size: 2.5rem; color: #3b82f6; font-weight: 800; }
+        .stats p { color: #64748b; }
+        
+        /* Cards */
+        .section { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
+        .section-title p { color: #94a3b8; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: #1e293b; border: 1px solid #334155; border-radius: 16px; overflow: hidden; transition: 0.3s; }
+        .card:hover { transform: translateY(-8px); border-color: #3b82f6; }
+        .card-img { height: 180px; background: linear-gradient(135deg, #1e293b, #334155); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+        .card-body { padding: 20px; }
+        .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+        .card-text { color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px; }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid #334155; }
+        .price { font-size: 1.25rem; font-weight: 700; color: #3b82f6; }
+        .old-price { text-decoration: line-through; color: #64748b; font-size: 0.9rem; margin-left: 8px; }
+        
+        /* Testimonials */
+        .bg-gradient { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .testimonial-card { background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 25px; }
+        .testimonial-author { display: flex; align-items: center; margin-bottom: 15px; }
+        .author-avatar { width: 50px; height: 50px; background: #3b82f6; border-radius: 50%; margin-right: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .stars { color: #f59e0b; margin-bottom: 10px; }
+        
+        /* Footer */
+        footer { background: #0a0f1c; padding: 60px 0 30px; border-top: 1px solid #1e293b; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer h4 { color: #f8fafc; margin-bottom: 20px; font-size: 1.1rem; }
+        .footer a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; }
+        .footer a:hover { color: #3b82f6; }
+        .copyright { text-align: center; color: #64748b; padding-top: 30px; border-top: 1px solid #1e293b; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">🎓 Edu<span>Pro</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="courses.html">Courses</a>
+                <a href="instructors.html">Instructors</a>
+                <a href="contact.html">Contact</a>
+                <a href="#" class="btn btn-primary" style="margin-left: 20px; padding: 8px 20px;">Enroll Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+                <div>
+                    <span class="badge">⭐ Trusted by 50,000+ Students Worldwide</span>
+                    <h1>Unlock Your <span style="color: #3b82f6;">Potential</span> With Expert-Led Education</h1>
+                    <p>Join our world-class learning platform and transform your career with industry-recognized courses taught by global experts.</p>
+                    <div>
+                        <a href="courses.html" class="btn btn-primary">Explore Courses →</a>
+                        <a href="about.html" class="btn btn-outline">Watch Demo</a>
+                    </div>
+                    <div style="display: flex; gap: 30px; margin-top: 40px;">
+                        <div>
+                            <strong style="font-size: 1.5rem;">50K+</strong>
+                            <p style="color: #64748b; margin: 0;">Students</p>
+                        </div>
+                        <div style="border-left: 1px solid #334155;"></div>
+                        <div>
+                            <strong style="font-size: 1.5rem;">⭐ 4.9/5</strong>
+                            <p style="color: #64748b; margin: 0;">Rating</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; font-size: 8rem;">📚</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;">
+                <div>
+                    <h2>50K+</h2>
+                    <p>Active Students</p>
+                </div>
+                <div>
+                    <h2>250+</h2>
+                    <p>Expert Instructors</p>
+                </div>
+                <div>
+                    <h2>500+</h2>
+                    <p>Courses</p>
+                </div>
+                <div>
+                    <h2>95%</h2>
+                    <p>Success Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Courses -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Courses</h2>
+                <p>Start learning today with our most popular courses</p>
+            </div>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-img">💻</div>
+                    <div class="card-body">
+                        <span style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem;">Development</span>
+                        <h3 class="card-title">Complete Web Development Bootcamp 2026</h3>
+                        <p class="card-text">by John Smith • ⭐ 4.9 (12,500 students)</p>
+                        <div class="card-footer">
+                            <div><span class="price">$49.99</span><span class="old-price">$199.99</span></div>
+                            <a href="#" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">📊</div>
+                    <div class="card-body">
+                        <span style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem;">Data Science</span>
+                        <h3 class="card-title">Data Science & Machine Learning</h3>
+                        <p class="card-text">by Dr. Sarah Johnson • ⭐ 4.9 (8,900 students)</p>
+                        <div class="card-footer">
+                            <div><span class="price">$59.99</span><span class="old-price">$249.99</span></div>
+                            <a href="#" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">🎨</div>
+                    <div class="card-body">
+                        <span style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem;">Design</span>
+                        <h3 class="card-title">UI/UX Design Masterclass</h3>
+                        <p class="card-text">by Emily Davis • ⭐ 4.8 (6,700 students)</p>
+                        <div class="card-footer">
+                            <div><span class="price">$39.99</span><span class="old-price">$179.99</span></div>
+                            <a href="#" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="courses.html" class="btn btn-outline" style="padding: 12px 30px;">View All Courses →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section bg-gradient" style="padding: 80px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">What Our Students Say</h2>
+                <p style="color: #94a3b8;">Join thousands of satisfied learners</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AH</div>
+                        <div>
+                            <strong>Ahmed Hassan</strong>
+                            <p style="color: #64748b; margin: 0; font-size: 0.85rem;">Web Developer</p>
+                        </div>
+                    </div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p style="color: #94a3b8;">"Excellent platform! The courses are well-structured. I landed my dream job after completing the Web Development course."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-author">
+                        <div class="author-avatar">FA</div>
+                        <div>
+                            <strong>Fatima Akbari</strong>
+                            <p style="color: #64748b; margin: 0; font-size: 0.85rem;">Data Scientist</p>
+                        </div>
+                    </div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p style="color: #94a3b8;">"EduPro Academy changed my career completely. Highly recommended!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-author">
+                        <div class="author-avatar">KR</div>
+                        <div>
+                            <strong>Karim Rahimi</strong>
+                            <p style="color: #64748b; margin: 0; font-size: 0.85rem;">UX Designer</p>
+                        </div>
+                    </div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p style="color: #94a3b8;">"The best investment I made for my education. Perfect for working professionals."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer">
+                    <h4>🎓 EduPro Academy</h4>
+                    <p style="color: #64748b;">Empowering students worldwide with quality education since 2020.</p>
+                </div>
+                <div class="footer">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="courses.html">Courses</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer">
+                    <h4>Courses</h4>
+                    <a href="#">Web Development</a>
+                    <a href="#">Data Science</a>
+                    <a href="#">UI/UX Design</a>
+                    <a href="#">Marketing</a>
+                </div>
+                <div class="footer">
+                    <h4>Contact</h4>
+                    <p style="color: #64748b; margin-bottom: 5px;">📍 Kabul, Afghanistan</p>
+                    <p style="color: #64748b; margin-bottom: 5px;">📧 info@edupro.academy</p>
+                    <p style="color: #64748b;">📞 +93 700 123 456</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2026 EduPro Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
