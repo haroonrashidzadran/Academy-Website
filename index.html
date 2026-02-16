@@ -13,18 +13,18 @@
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link rel="stylesheet".css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Preloader -->
-    <div class href="css/style="preloader">
+    <div class="preloader">
         <div class="spinner-border text-primary" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <div class="logo-icon me-2">
@@ -32,7 +32,7 @@
                 </div>
                 <span class="fw-bold fs-4">Edu<span class="text-primary">Pro</span></span>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -56,7 +56,7 @@
         <div class="container position-relative">
             <div class="row align-items-center min-vh-100 py-5">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="badge bg-primary bg-opacity-10 text-primary mb-4 px-3 py-2 rounded-pill">
+                    <div class="badge bg-primary-subtle text-primary mb-4 px-3 py-2 rounded-pill">
                         <i class="fas fa-star me-1"></i>Trusted by 50,000+ Students Worldwide
                     </div>
                     <h1 class="display-3 fw-bold mb-4 lh-1">Unlock Your <span class="text-primary">Potential</span> With Expert-Led Education</h1>
@@ -65,16 +65,16 @@
                         <a href="courses.html" class="btn btn-primary btn-lg rounded-pill px-4 shadow-lg">
                             Explore Courses <i class="fas fa-arrow-right ms-2"></i>
                         </a>
-                        <a href="about.html" class="btn btn-outline-dark btn-lg rounded-pill px-4">
+                        <a href="about.html" class="btn btn-outline-light btn-lg rounded-pill px-4">
                             <i class="fas fa-play-circle me-2"></i>Watch Demo
                         </a>
                     </div>
                     <div class="d-flex align-items-center gap-4">
                         <div class="d-flex align-items-center">
                             <div class="d-flex">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" class="rounded-circle border border-2 border-white" alt="Student">
-                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" class="rounded-circle border border-2 border-white ms-n2" alt="Student">
-                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face" class="rounded-circle border border-2 border-white ms-n2" alt="Student">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" class="rounded-circle border border-2" style="border-color: var(--primary-color) !important;" alt="Student">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" class="rounded-circle border border-2 ms-n2" style="border-color: var(--primary-color) !important;" alt="Student">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face" class="rounded-circle border border-2 ms-n2" style="border-color: var(--primary-color) !important;" alt="Student">
                             </div>
                             <span class="ms-3 fw-semibold">50K+<br><span class="text-muted fw-normal fs-6">Students</span></span>
                         </div>
@@ -86,7 +86,7 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
-                                <span class="text-dark ms-2 fw-bold">4.9/5</span>
+                                <span class="text-light ms-2 fw-bold">4.9/5</span>
                             </div>
                             <span class="text-muted">Student Rating</span>
                         </div>
@@ -121,39 +121,33 @@
                 </div>
             </div>
         </div>
-        <!-- Wave Decoration -->
-        <div class="position-absolute bottom-0 w-100">
-            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
-            </svg>
-        </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="py-5 bg-white">
+    <section class="py-5">
         <div class="container">
             <div class="row g-4 text-center">
                 <div class="col-6 col-lg-3" data-aos="zoom-in" data-aos-delay="0">
                     <div class="stat-item">
-                        <h2 class="display-4 fw-bold text-primary mb-0 counter" data-target="50000">0</h2>
+                        <h2 class="display-4 fw-bold mb-0 counter" data-target="50000">0</h2>
                         <p class="text-muted mb-0">Active Students</p>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
                     <div class="stat-item">
-                        <h2 class="display-4 fw-bold text-primary mb-0 counter" data-target="250">0</h2>
+                        <h2 class="display-4 fw-bold mb-0 counter" data-target="250">0</h2>
                         <p class="text-muted mb-0">Expert Instructors</p>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
                     <div class="stat-item">
-                        <h2 class="display-4 fw-bold text-primary mb-0 counter" data-target="500">0</h2>
+                        <h2 class="display-4 fw-bold mb-0 counter" data-target="500">0</h2>
                         <p class="text-muted mb-0">Courses</p>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
                     <div class="stat-item">
-                        <h2 class="display-4 fw-bold text-primary mb-0 counter" data-target="95">0</h2>
+                        <h2 class="display-4 fw-bold mb-0 counter" data-target="95">0</h2>
                         <p class="text-muted mb-0">% Success Rate</p>
                     </div>
                 </div>
@@ -162,66 +156,66 @@
     </section>
 
     <!-- Features Section -->
-    <section class="py-5 bg-light">
+    <section class="py-5">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
                 <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3">Why Choose Us</span>
                 <h2 class="display-5 fw-bold mb-3">Everything You Need to Succeed</h2>
-                <p class="text-muted lead mx-auto" style="max-width: 600px;">Our platform provides comprehensive tools and resources to help you achieve your learning goals.</p>
+                <p class="text-secondary lead mx-auto" style="max-width: 600px;">Our platform provides comprehensive tools and resources to help you achieve your learning goals.</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
-                    <div class="card feature-card h-100 border-0 shadow-sm rounded-4 p-4">
-                        <div class="feature-icon bg-primary bg-opacity-10 rounded-3 d-inline-flex align-items-center justify-content-center mb-4">
+                    <div class="card feature-card h-100 p-4">
+                        <div class="feature-icon bg-primary-subtle rounded-3 d-inline-flex align-items-center justify-content-center mb-4">
                             <i class="fas fa-laptop-code fa-2x text-primary"></i>
                         </div>
                         <h4 class="fw-bold mb-3">Online Learning</h4>
-                        <p class="text-muted mb-0">Access high-quality courses from anywhere in the world. Learn at your own pace on any device.</p>
+                        <p class="text-secondary mb-0">Access high-quality courses from anywhere in the world. Learn at your own pace on any device.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card feature-card h-100 border-0 shadow-sm rounded-4 p-4">
-                        <div class="feature-icon bg-success bg-opacity-10 rounded-3 d-inline-flex align-items-center justify-content-center mb-4">
+                    <div class="card feature-card h-100 p-4">
+                        <div class="feature-icon bg-success-subtle rounded-3 d-inline-flex align-items-center justify-content-center mb-4">
                             <i class="fas fa-certificate fa-2x text-success"></i>
                         </div>
                         <h4 class="fw-bold mb-3">Certified Courses</h4>
-                        <p class="text-muted mb-0">Earn industry-recognized certificates upon course completion to boost your resume.</p>
+                        <p class="text-secondary mb-0">Earn industry-recognized certificates upon course completion to boost your resume.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card feature-card h-100 border-0 shadow-sm rounded-4 p-4">
-                        <div class="feature-icon bg-warning bg-opacity-10 rounded-3 d-inline-flex align-items-center justify-content-center mb-4">
+                    <div class="card feature-card h-100 p-4">
+                        <div class="feature-icon bg-warning-subtle rounded-3 d-inline-flex align-items-center justify-content-center mb-4">
                             <i class="fas fa-user-tie fa-2x text-warning"></i>
                         </div>
                         <h4 class="fw-bold mb-3">Expert Instructors</h4>
-                        <p class="text-muted mb-0">Learn from industry professionals with years of real-world experience.</p>
+                        <p class="text-secondary mb-0">Learn from industry professionals with years of real-world experience.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card feature-card h-100 border-0 shadow-sm rounded-4 p-4">
-                        <div class="feature-icon bg-danger bg-opacity-10 rounded-3 d-inline-flex align-items-center justify-content-center mb-4">
+                    <div class="card feature-card h-100 p-4">
+                        <div class="feature-icon bg-danger-subtle rounded-3 d-inline-flex align-items-center justify-content-center mb-4">
                             <i class="fas fa-users fa-2x text-danger"></i>
                         </div>
                         <h4 class="fw-bold mb-3">Community Support</h4>
-                        <p class="text-muted mb-0">Join a vibrant community of learners. Get help and collaborate on projects.</p>
+                        <p class="text-secondary mb-0">Join a vibrant community of learners. Get help and collaborate on projects.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card feature-card h-100 border-0 shadow-sm rounded-4 p-4">
-                        <div class="feature-icon bg-info bg-opacity-10 rounded-3 d-inline-flex align-items-center justify-content-center mb-4">
+                    <div class="card feature-card h-100 p-4">
+                        <div class="feature-icon bg-info-subtle rounded-3 d-inline-flex align-items-center justify-content-center mb-4">
                             <i class="fas fa-project-diagram fa-2x text-info"></i>
                         </div>
                         <h4 class="fw-bold mb-3">Hands-on Projects</h4>
-                        <p class="text-muted mb-0">Build real-world projects to apply your skills and build a portfolio.</p>
+                        <p class="text-secondary mb-0">Build real-world projects to apply your skills and build a portfolio.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
-                    <div class="card feature-card h-100 border-0 shadow-sm rounded-4 p-4">
-                        <div class="feature-icon bg-secondary bg-opacity-10 rounded-3 d-inline-flex align-items-center justify-content-center mb-4">
-                            <i class="fas fa-headset fa-2x text-secondary"></i>
+                    <div class="card feature-card h-100 p-4">
+                        <div class="feature-icon rounded-3 d-inline-flex align-items-center justify-content-center mb-4" style="background-color: rgba(139, 92, 246, 0.15);">
+                            <i class="fas fa-headset fa-2x" style="color: #8b5cf6;"></i>
                         </div>
                         <h4 class="fw-bold mb-3">24/7 Support</h4>
-                        <p class="text-muted mb-0">Our support team is always available to help you with any questions.</p>
+                        <p class="text-secondary mb-0">Our support team is always available to help you with any questions.</p>
                     </div>
                 </div>
             </div>
@@ -229,12 +223,12 @@
     </section>
 
     <!-- Popular Courses -->
-    <section class="py-5 bg-white">
+    <section class="py-5">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
                 <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3">Popular Courses</span>
                 <h2 class="display-5 fw-bold mb-3">Explore Our Top Courses</h2>
-                <p class="text-muted lead mx-auto" style="max-width: 600px;">Start learning today with our most popular courses chosen by thousands of students.</p>
+                <p class="text-secondary lead mx-auto" style="max-width: 600px;">Start learning today with our most popular courses chosen by thousands of students.</p>
             </div>
             <div class="row g-4" id="popularCourses">
                 <!-- Courses loaded via JavaScript -->
@@ -248,16 +242,16 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="py-5" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);">
+    <section class="py-5" style="background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
-                <span class="badge bg-white bg-opacity-20 text-white px-3 py-2 rounded-pill mb-3">Testimonials</span>
+                <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill mb-3">Testimonials</span>
                 <h2 class="display-5 fw-bold text-white mb-3">What Our Students Say</h2>
                 <p class="text-white-50 lead mx-auto" style="max-width: 600px;">Don't just take our word for it. Here's what our students have to say about their experience.</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
-                    <div class="card h-100 border-0 shadow rounded-4 p-4">
+                    <div class="card h-100 p-4">
                         <div class="d-flex align-items-center mb-3">
                             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="Student" class="rounded-circle me-3">
                             <div>
@@ -272,11 +266,11 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="text-muted mb-0">"Excellent platform! The courses are well-structured and the instructors are very knowledgeable. I landed my dream job after completing the Web Development course."</p>
+                        <p class="text-secondary mb-0">"Excellent platform! The courses are well-structured and the instructors are very knowledgeable. I landed my dream job after completing the Web Development course."</p>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card h-100 border-0 shadow rounded-4 p-4">
+                    <div class="card h-100 p-4">
                         <div class="d-flex align-items-center mb-3">
                             <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&h=60&fit=crop&crop=face" alt="Student" class="rounded-circle me-3">
                             <div>
@@ -291,11 +285,11 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="text-muted mb-0">"EduPro Academy changed my career completely. The Data Science course gave me all the skills I needed to transition into a tech role. Highly recommended!"</p>
+                        <p class="text-secondary mb-0">"EduPro Academy changed my career completely. The Data Science course gave me all the skills I needed to transition into a tech role. Highly recommended!"</p>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card h-100 border-0 shadow rounded-4 p-4">
+                    <div class="card h-100 p-4">
                         <div class="d-flex align-items-center mb-3">
                             <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&h=60&fit=crop&crop=face" alt="Student" class="rounded-circle me-3">
                             <div>
@@ -310,7 +304,7 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="text-muted mb-0">"The best investment I made for my education. The flexibility to learn at my own pace while working full-time was exactly what I needed."</p>
+                        <p class="text-secondary mb-0">"The best investment I made for my education. The flexibility to learn at my own pace while working full-time was exactly what I needed."</p>
                     </div>
                 </div>
             </div>
@@ -320,13 +314,13 @@
     <!-- CTA Section -->
     <section class="py-5 position-relative overflow-hidden">
         <div class="container">
-            <div class="card bg-dark rounded-4 p-5 text-center position-relative overflow-hidden" data-aos="zoom-in">
+            <div class="card cta-card p-5 text-center position-relative overflow-hidden" data-aos="zoom-in">
                 <div class="position-absolute top-0 end-0 p-4 opacity-10">
                     <i class="fas fa-graduation-cap fa-10x"></i>
                 </div>
                 <div class="position-relative z-1">
-                    <h2 class="display-5 fw-bold text-white mb-3">Ready to Start Your Learning Journey?</h2>
-                    <p class="text-white-50 lead mb-4 mx-auto" style="max-width: 600px;">Join thousands of students already learning on EduPro Academy. Start your transformation today.</p>
+                    <h2 class="display-5 fw-bold mb-3">Ready to Start Your Learning Journey?</h2>
+                    <p class="text-secondary lead mb-4 mx-auto" style="max-width: 600px;">Join thousands of students already learning on EduPro Academy. Start your transformation today.</p>
                     <div class="d-flex flex-wrap justify-content-center gap-3">
                         <a href="contact.html" class="btn btn-warning btn-lg rounded-pill px-5">
                             Get Started Free <i class="fas fa-arrow-right ms-2"></i>
@@ -341,7 +335,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white pt-5">
+    <footer class="pt-5">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-4">
@@ -353,14 +347,14 @@
                     </a>
                     <p class="text-secondary mb-4">Empowering students worldwide with quality education and industry-relevant skills since 2020.</p>
                     <div class="d-flex gap-3">
-                        <a href="#" class="social-icon bg-white bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon bg-white bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center text-white"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon bg-white bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center text-white"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon bg-white bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon rounded-circle d-flex align-items-center justify-content-center text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon rounded-circle d-flex align-items-center justify-content-center text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon rounded-circle d-flex align-items-center justify-content-center text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon rounded-circle d-flex align-items-center justify-content-center text-white"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4">
-                    <h6 class="fw-bold mb-4">Quick Links</h6>
+                    <h6 class="fw-bold mb-4 text-white">Quick Links</h6>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="index.html" class="text-secondary text-decoration-none">Home</a></li>
                         <li class="mb-2"><a href="about.html" class="text-secondary text-decoration-none">About Us</a></li>
@@ -370,7 +364,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-4">
-                    <h6 class="fw-bold mb-4">Popular Courses</h6>
+                    <h6 class="fw-bold mb-4 text-white">Popular Courses</h6>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Web Development</a></li>
                         <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Data Science</a></li>
@@ -380,7 +374,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-4">
-                    <h6 class="fw-bold mb-4">Contact Info</h6>
+                    <h6 class="fw-bold mb-4 text-white">Contact Info</h6>
                     <ul class="list-unstyled text-secondary">
                         <li class="mb-3 d-flex align-items-start">
                             <i class="fas fa-map-marker-alt mt-1 me-3"></i>
@@ -397,7 +391,7 @@
                     </ul>
                 </div>
             </div>
-            <hr class="my-5 border-secondary">
+            <hr>
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start">
                     <p class="mb-0 text-secondary">&copy; 2026 EduPro Academy. All rights reserved.</p>
