@@ -4,209 +4,305 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses - EduPro Academy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #3b82f6; --primary-dark: #2563eb;
+            --bg-dark: #0f172a; --bg-card: #1e293b; --bg-hover: #334155;
+            --text-primary: #f8fafc; --text-secondary: #94a3b8; --text-muted: #64748b;
+            --border: #334155;
+        }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg-dark); color: var(--text-primary); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        .navbar { position: fixed; top: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); padding: 15px 0; z-index: 1000; border-bottom: 1px solid var(--border); }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; font-size: 1.5rem; font-weight: 700; }
+        .logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 10px; }
+        .logo span { color: var(--primary); }
+        .nav-links { display: flex; align-items: center; gap: 25px; }
+        .nav-link { color: var(--text-secondary); font-weight: 500; padding: 8px 12px; border-radius: 8px; }
+        .nav-link:hover, .nav-link.active { color: var(--primary); background: rgba(59, 130, 246, 0.1); }
+        .btn { display: inline-block; padding: 10px 24px; border-radius: 50px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        .btn-outline { border: 2px solid var(--border); color: var(--text-primary); }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+        
+        .page-header { padding: 140px 0 60px; background: linear-gradient(135deg, #1e3a8a, var(--primary-dark)); text-align: center; }
+        .page-header h1 { font-size: 3rem; font-weight: 800; margin-bottom: 10px; }
+        .page-header p { color: var(--text-secondary); font-size: 1.1rem; }
+        
+        .filters { padding: 30px 0; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .filter-btn { padding: 10px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50px; color: var(--text-secondary); cursor: pointer; transition: 0.3s; }
+        .filter-btn:hover, .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        
+        .courses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 40px 0; }
+        .course-card { background: var(--bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; }
+        .course-card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .course-image { height: 200px; position: relative; }
+        .course-image img { width: 100%; height: 100%; object-fit: cover; }
+        .course-badge { position: absolute; top: 15px; left: 15px; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+        .badge-success { background: rgba(16, 185, 129, 0.9); color: white; }
+        .badge-primary { background: var(--primary); color: white; }
+        .badge-warning { background: #f59e0b; color: #0f172a; }
+        .course-body { padding: 22px; }
+        .course-category { display: inline-block; background: rgba(59, 130, 246, 0.15); color: var(--primary); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; margin-bottom: 10px; }
+        .course-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
+        .course-instructor { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
+        .course-meta { display: flex; align-items: center; gap: 15px; color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 15px; }
+        .course-meta span { display: flex; align-items: center; gap: 5px; }
+        .course-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid var(--border); }
+        .course-price { font-size: 1.3rem; font-weight: 700; color: var(--primary); }
+        .course-price .old { text-decoration: line-through; color: var(--text-muted); font-size: 0.9rem; margin-left: 8px; font-weight: 400; }
+        
+        .pagination { display: flex; justify-content: center; gap: 10px; padding: 40px 0; }
+        .page-btn { width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; color: var(--text-secondary); cursor: pointer; transition: 0.3s; }
+        .page-btn:hover, .page-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        
+        footer { background: #0a0f1c; padding: 60px 0 30px; border-top: 1px solid var(--border); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand p { color: var(--text-secondary); margin-top: 15px; max-width: 300px; }
+        .footer h4 { color: var(--text-primary); margin-bottom: 20px; font-size: 1rem; }
+        .footer a { display: block; color: var(--text-secondary); margin-bottom: 12px; font-size: 0.9rem; }
+        .footer a:hover { color: var(--primary); }
+        .footer-bottom { padding-top: 30px; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+        
+        @media (max-width: 992px) { .courses-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) {
+            .navbar .container { flex-direction: column; gap: 15px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+            .page-header h1 { font-size: 2rem; }
+            .courses-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-brand p { max-width: 100%; }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top" id="mainNav">
+    <nav class="navbar">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <div class="logo-icon me-2"><i class="fas fa-graduation-cap"></i></div>
-                <span class="fw-bold fs-4">Edu<span class="text-primary">Pro</span></span>
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🎓</div>
+                Edu<span>Pro</span>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="courses.html">Courses</a></li>
-                    <li class="nav-item"><a class="nav-link" href="instructors.html">Instructors</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item ms-lg-3"><a class="btn btn-primary rounded-pill px-4 py-2" href="#">Enroll Now</a></li>
-                </ul>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="courses.html" class="nav-link active">Courses</a>
+                <a href="instructors.html" class="nav-link">Instructors</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="#" class="btn btn-primary">Enroll Now</a>
             </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <section class="page-header text-white">
+    <section class="page-header">
         <div class="container">
-            <div class="text-center py-5" data-aos="fade-up">
-                <h1 class="display-4 fw-bold mb-3">Our Courses</h1>
-                <p class="lead opacity-75">Explore 200+ courses designed to boost your career</p>
-            </div>
+            <h1>Our Courses</h1>
+            <p>Explore our wide range of courses designed to help you succeed</p>
         </div>
     </section>
 
-    <!-- Courses Section -->
-    <section class="py-5">
-        <div class="container">
-            <!-- Filters -->
-            <div class="row g-3 mb-5" data-aos="fade-up">
-                <div class="col-md-4">
-                    <div class="input-group">
-                        <span class="input-group-text bg-white border-end-0"><i class="fas fa-search text-muted"></i></span>
-                        <input type="text" class="form-control border-start-0" placeholder="Search courses..." id="searchInput">
+    <!-- Filters -->
+    <div class="container">
+        <div class="filters">
+            <button class="filter-btn active">All Courses</button>
+            <button class="filter-btn">Development</button>
+            <button class="filter-btn">Data Science</button>
+            <button class="filter-btn">Design</button>
+            <button class="filter-btn">Business</button>
+            <button class="filter-btn">Marketing</button>
+        </div>
+    </div>
+
+    <!-- Courses Grid -->
+    <section class="container">
+        <div class="courses-grid">
+            <!-- Course 1 -->
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop" alt="Web Development">
+                    <span class="course-badge badge-success">Best Seller</span>
+                </div>
+                <div class="course-body">
+                    <span class="course-category">Development</span>
+                    <h4 class="course-title">Complete Web Development Bootcamp 2026</h4>
+                    <p class="course-instructor">by John Smith</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.9</span>
+                        <span>👥 12,500</span>
+                        <span>⏱️ 42 hours</span>
+                    </div>
+                    <div class="course-footer">
+                        <div><span class="course-price">$49.99 <span class="old">$199.99</span></span></div>
+                        <a href="#" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem;">Enroll</a>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <select class="form-select" id="categoryFilter">
-                        <option value="">All Categories</option>
-                        <option value="Development">Development</option>
-                        <option value="Data Science">Data Science</option>
-                        <option value="Design">Design</option>
-                        <option value="Marketing">Marketing</option>
-                    </select>
+            </div>
+            <!-- Course 2 -->
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="Data Science">
+                    <span class="course-badge badge-primary">New</span>
                 </div>
-                <div class="col-md-3">
-                    <select class="form-select" id="levelFilter">
-                        <option value="">All Levels</option>
-                        <option value="Beginner">Beginner</option>
-                        <option value="Intermediate">Intermediate</option>
-                        <option value="Advanced">Advanced</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select class="form-select" id="sortFilter">
-                        <option value="popular">Most Popular</option>
-                        <option value="newest">Newest</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                    </select>
+                <div class="course-body">
+                    <span class="course-category">Data Science</span>
+                    <h4 class="course-title">Data Science & Machine Learning</h4>
+                    <p class="course-instructor">by Dr. Sarah Johnson</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.9</span>
+                        <span>👥 8,900</span>
+                        <span>⏱️ 38 hours</span>
+                    </div>
+                    <div class="course-footer">
+                        <div><span class="course-price">$59.99 <span class="old">$249.99</span></span></div>
+                        <a href="#" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem;">Enroll</a>
+                    </div>
                 </div>
             </div>
-
-            <!-- Results Count -->
-            <div class="mb-4" data-aos="fade-up">
-                <p class="text-muted mb-0">Showing <strong id="resultsCount">12</strong> courses</p>
+            <!-- Course 3 -->
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=250&fit=crop" alt="UI/UX Design">
+                    <span class="course-badge badge-warning">Popular</span>
+                </div>
+                <div class="course-body">
+                    <span class="course-category">Design</span>
+                    <h4 class="course-title">UI/UX Design Masterclass</h4>
+                    <p class="course-instructor">by Emily Davis</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.8</span>
+                        <span>👥 6,700</span>
+                        <span>⏱️ 28 hours</span>
+                    </div>
+                    <div class="course-footer">
+                        <div><span class="course-price">$39.99 <span class="old">$179.99</span></span></div>
+                        <a href="#" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem;">Enroll</a>
+                    </div>
+                </div>
             </div>
-
-            <!-- Courses Grid -->
-            <div class="row g-4" id="allCourses">
-                <!-- Courses loaded via JavaScript -->
+            <!-- Course 4 -->
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop" alt="Marketing">
+                    <span class="course-badge badge-primary">New</span>
+                </div>
+                <div class="course-body">
+                    <span class="course-category">Marketing</span>
+                    <h4 class="course-title">Digital Marketing Complete Guide</h4>
+                    <p class="course-instructor">by Alex Turner</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.7</span>
+                        <span>👥 5,200</span>
+                        <span>⏱️ 32 hours</span>
+                    </div>
+                    <div class="course-footer">
+                        <div><span class="course-price">$44.99 <span class="old">$199.99</span></span></div>
+                        <a href="#" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem;">Enroll</a>
+                    </div>
+                </div>
             </div>
-
-            <!-- Load More -->
-            <div class="text-center mt-5" data-aos="fade-up">
-                <button class="btn btn-outline-primary btn-lg rounded-pill px-5" id="loadMoreBtn">Load More Courses</button>
+            <!-- Course 5 -->
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=250&fit=crop" alt="Python">
+                    <span class="course-badge badge-success">Best Seller</span>
+                </div>
+                <div class="course-body">
+                    <span class="course-category">Development</span>
+                    <h4 class="course-title">Python for Data Science</h4>
+                    <p class="course-instructor">by Dr. James Wilson</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.9</span>
+                        <span>👥 10,800</span>
+                        <span>⏱️ 45 hours</span>
+                    </div>
+                    <div class="course-footer">
+                        <div><span class="course-price">$54.99 <span class="old">$229.99</span></span></div>
+                        <a href="#" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem;">Enroll</a>
+                    </div>
+                </div>
             </div>
+            <!-- Course 6 -->
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&h=250&fit=crop" alt="Finance">
+                    <span class="course-badge badge-warning">Popular</span>
+                </div>
+                <div class="course-body">
+                    <span class="course-category">Business</span>
+                    <h4 class="course-title">Financial Analysis & Modeling</h4>
+                    <p class="course-instructor">by Robert Chen</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.8</span>
+                        <span>👥 4,500</span>
+                        <span>⏱️ 35 hours</span>
+                    </div>
+                    <div class="course-footer">
+                        <div><span class="course-price">$64.99 <span class="old">$279.99</span></span></div>
+                        <a href="#" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem;">Enroll</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="page-btn">←</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn">→</button>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
+    <footer>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <a class="navbar-brand d-flex align-items-center mb-4" href="index.html">
-                        <div class="logo-icon me-2"><i class="fas fa-graduation-cap"></i></div>
-                        <span class="fw-bold fs-4">Edu<span class="text-primary">Pro</span></span>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">🎓</div>
+                        Edu<span>Pro</span>
                     </a>
-                    <p class="text-secondary">Learn. Grow. Succeed.</p>
+                    <p>Empowering students worldwide with quality education since 2020.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="courses.html">Courses</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div>
+                    <h4>Courses</h4>
+                    <a href="#">Web Development</a>
+                    <a href="#">Data Science</a>
+                    <a href="#">UI/UX Design</a>
+                    <a href="#">Marketing</a>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 5px;">📍 Kabul, Afghanistan</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 5px;">📧 info@edupro.academy</p>
+                    <p style="color: var(--text-secondary);">📞 +93 700 123 456</p>
                 </div>
             </div>
-            <hr class="my-4 border-secondary">
-            <p class="mb-0 text-center text-secondary">&copy; 2026 EduPro Academy. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>© 2026 EduPro Academy. All rights reserved.</p>
+            </div>
         </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        // Extended courses data
-        const allCoursesData = [
-            ...coursesData,
-            {
-                id: 7, title: 'AWS Cloud Practitioner Certification', category: 'Development', image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop', price: 44.99, oldPrice: 179.99, rating: 4.8, students: 4500, duration: '18 hours', level: 'Beginner', badge: 'Certification', badgeColor: 'bg-info', instructor: 'David Wilson'
-            },
-            {
-                id: 8, title: 'JavaScript Algorithms & Data Structures', category: 'Development', image: 'https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=400&h=250&fit=crop', price: 39.99, oldPrice: 159.99, rating: 4.9, students: 6200, duration: '28 hours', level: 'Intermediate', badge: null, badgeColor: null, instructor: 'Chris Anderson'
-            },
-            {
-                id: 9, title: 'Adobe Photoshop Mastery', category: 'Design', image: 'https://images.unsplash.com/photo-1542744094-24638eff58bb?w=400&h=250&fit=crop', price: 29.99, oldPrice: 129.99, rating: 4.7, students: 3800, duration: '20 hours', level: 'Beginner', badge: 'Popular', badgeColor: 'bg-warning text-dark', instructor: 'Anna Martinez'
-            },
-            {
-                id: 10, title: 'SEO & Google Analytics', category: 'Marketing', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop', price: 34.99, oldPrice: 149.99, rating: 4.6, students: 3200, duration: '15 hours', level: 'Beginner', badge: null, badgeColor: null, instructor: 'Tom Harris'
-            },
-            {
-                id: 11, title: 'Advanced React Patterns', category: 'Development', image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=250&fit=crop', price: 49.99, oldPrice: 199.99, rating: 4.9, students: 4100, duration: '25 hours', level: 'Advanced', badge: 'Expert', badgeColor: 'bg-dark', instructor: 'Sarah Lee'
-            },
-            {
-                id: 12, title: 'SQL & Database Management', category: 'Data Science', image: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=250&fit=crop', price: 29.99, oldPrice: 129.99, rating: 4.7, students: 5600, duration: '18 hours', level: 'Beginner', badge: 'Bestseller', badgeColor: 'bg-success', instructor: 'Mike Brown'
-            }
-        ];
-
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({ duration: 800, once: true });
-            initAllCourses();
-            initFilters();
-        });
-
-        function initAllCourses() {
-            renderCourses(allCoursesData);
-        }
-
-        function renderCourses(courses) {
-            const container = document.getElementById('allCourses');
-            container.innerHTML = courses.slice(0, 6).map((course, i) => `
-                <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="${i * 100}">
-                    <div class="card course-card h-100 shadow-sm">
-                        ${course.badge ? `<span class="badge ${course.badgeColor} course-badge">${course.badge}</span>` : ''}
-                        <img src="${course.image}" alt="${course.title}" class="course-image w-100">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <span class="badge bg-light text-dark">${course.category}</span>
-                                <span class="badge ${course.level === 'Beginner' ? 'bg-success-subtle text-success' : course.level === 'Intermediate' ? 'bg-warning-subtle text-warning' : 'bg-danger-subtle text-danger'}">${course.level}</span>
-                            </div>
-                            <h5 class="card-title fw-bold mb-2 lh-base">${course.title}</h5>
-                            <p class="text-muted small mb-3">by ${course.instructor}</p>
-                            <div class="d-flex align-items-center mb-3">
-                                <span class="text-warning"><i class="fas fa-star"></i> <strong>${course.rating}</strong></span>
-                                <span class="text-muted small ms-2">(${course.students.toLocaleString()})</span>
-                            </div>
-                            <div class="d-flex align-items-center mb-3 text-muted small">
-                                <i class="far fa-clock me-2"></i><span>${course.duration}</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-3">
-                                <span class="course-price">$${course.price}</span>
-                                <button class="btn btn-primary btn-sm">Enroll Now</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function initFilters() {
-            const searchInput = document.getElementById('searchInput');
-            const categoryFilter = document.getElementById('categoryFilter');
-            const levelFilter = document.getElementById('levelFilter');
-
-            const applyFilters = () => {
-                let filtered = allCoursesData;
-                const search = searchInput?.value.toLowerCase() || '';
-                const category = categoryFilter?.value || '';
-                const level = levelFilter?.value || '';
-
-                if (search) filtered = filtered.filter(c => c.title.toLowerCase().includes(search));
-                if (category) filtered = filtered.filter(c => c.category === category);
-                if (level) filtered = filtered.filter(c => c.level === level);
-
-                renderCourses(filtered);
-                document.getElementById('resultsCount').textContent = filtered.length;
-            };
-
-            searchInput?.addEventListener('input', applyFilters);
-            categoryFilter?.addEventListener('change', applyFilters);
-            levelFilter?.addEventListener('change', applyFilters);
-        }
-    </script>
 </body>
 </html>

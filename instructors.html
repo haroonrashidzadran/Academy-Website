@@ -4,190 +4,319 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instructors - EduPro Academy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #3b82f6; --primary-dark: #2563eb;
+            --bg-dark: #0f172a; --bg-card: #1e293b; --bg-hover: #334155;
+            --text-primary: #f8fafc; --text-secondary: #94a3b8; --text-muted: #64748b;
+            --border: #334155;
+        }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg-dark); color: var(--text-primary); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        .navbar { position: fixed; top: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); padding: 15px 0; z-index: 1000; border-bottom: 1px solid var(--border); }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; font-size: 1.5rem; font-weight: 700; }
+        .logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 10px; }
+        .logo span { color: var(--primary); }
+        .nav-links { display: flex; align-items: center; gap: 25px; }
+        .nav-link { color: var(--text-secondary); font-weight: 500; padding: 8px 12px; border-radius: 8px; }
+        .nav-link:hover, .nav-link.active { color: var(--primary); background: rgba(59, 130, 246, 0.1); }
+        .btn { display: inline-block; padding: 10px 24px; border-radius: 50px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        
+        .page-header { padding: 140px 0 60px; background: linear-gradient(135deg, #1e3a8a, var(--primary-dark)); text-align: center; }
+        .page-header h1 { font-size: 3rem; font-weight: 800; margin-bottom: 10px; }
+        .page-header p { color: var(--text-secondary); font-size: 1.1rem; }
+        
+        .section { padding: 80px 0; }
+        .section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 15px; text-align: center; }
+        .section-subtitle { color: var(--text-secondary); font-size: 1.1rem; text-align: center; max-width: 600px; margin: 0 auto 50px; }
+        
+        .instructors-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .instructor-card { background: var(--bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; }
+        .instructor-card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .instructor-image { height: 280px; position: relative; overflow: hidden; }
+        .instructor-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+        .instructor-card:hover .instructor-image img { transform: scale(1.05); }
+        .instructor-socials { position: absolute; bottom: -50px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; padding: 15px; background: linear-gradient(transparent, rgba(0,0,0,0.8)); transition: 0.3s; }
+        .instructor-card:hover .instructor-socials { bottom: 0; }
+        .social-link { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: var(--primary); border-radius: 50%; color: white; font-size: 0.9rem; }
+        .instructor-body { padding: 20px; text-align: center; }
+        .instructor-name { font-size: 1.2rem; font-weight: 600; margin-bottom: 5px; }
+        .instructor-role { color: var(--primary); font-size: 0.9rem; margin-bottom: 10px; }
+        .instructor-stats { display: flex; justify-content: center; gap: 20px; color: var(--text-muted); font-size: 0.85rem; }
+        
+        .stats-bar { padding: 60px 0; background: linear-gradient(135deg, var(--primary-dark), #1e3a8a); }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+        .stat-item h3 { font-size: 3rem; font-weight: 800; margin-bottom: 5px; }
+        .stat-item p { color: var(--text-secondary); }
+        
+        footer { background: #0a0f1c; padding: 60px 0 30px; border-top: 1px solid var(--border); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand p { color: var(--text-secondary); margin-top: 15px; max-width: 300px; }
+        .footer h4 { color: var(--text-primary); margin-bottom: 20px; font-size: 1rem; }
+        .footer a { display: block; color: var(--text-secondary); margin-bottom: 12px; font-size: 0.9rem; }
+        .footer a:hover { color: var(--primary); }
+        .footer-bottom { padding-top: 30px; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+        
+        @media (max-width: 992px) { .instructors-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) {
+            .navbar .container { flex-direction: column; gap: 15px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+            .page-header h1 { font-size: 2rem; }
+            .instructors-grid, .stats-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-brand p { max-width: 100%; }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top" id="mainNav">
+    <nav class="navbar">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <div class="logo-icon me-2"><i class="fas fa-graduation-cap"></i></div>
-                <span class="fw-bold fs-4">Edu<span class="text-primary">Pro</span></span>
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🎓</div>
+                Edu<span>Pro</span>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="instructors.html">Instructors</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item ms-lg-3"><a class="btn btn-primary rounded-pill px-4 py-2" href="#">Enroll Now</a></li>
-                </ul>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="courses.html" class="nav-link">Courses</a>
+                <a href="instructors.html" class="nav-link active">Instructors</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="#" class="btn btn-primary">Enroll Now</a>
             </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <section class="page-header text-white">
+    <section class="page-header">
         <div class="container">
-            <div class="text-center py-5" data-aos="fade-up">
-                <h1 class="display-4 fw-bold mb-3">Our Instructors</h1>
-                <p class="lead opacity-75">Learn from industry experts and professionals</p>
+            <h1>Our Expert Instructors</h1>
+            <p>Learn from industry professionals with years of experience</p>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item"><h3>250+</h3><p>Expert Instructors</p></div>
+                <div class="stat-item"><h3>50K+</h3><p>Students Taught</p></div>
+                <div class="stat-item"><h3>10K+</h3><p>Hours of Content</p></div>
+                <div class="stat-item"><h3>95%</h3><p>Student Satisfaction</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Instructors Section -->
-    <section class="py-5">
+    <!-- Instructors Grid -->
+    <section class="section">
         <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3">Expert Team</span>
-                <h2 class="fw-bold mb-3">Meet Our World-Class Instructors</h2>
-                <p class="text-muted lead mx-auto" style="max-width: 600px;">Learn from industry professionals with years of real-world experience and proven track records.</p>
+            <h2 class="section-title">Meet Our Team</h2>
+            <p class="section-subtitle">Our instructors are experts in their fields, passionate about teaching</p>
+            <div class="instructors-grid">
+                <!-- Instructor 1 -->
+                <div class="instructor-card">
+                    <div class="instructor-image">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=350&fit=crop" alt="John Smith">
+                        <div class="instructor-socials">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">tw</a>
+                            <a href="#" class="social-link">fb</a>
+                        </div>
+                    </div>
+                    <div class="instructor-body">
+                        <div class="instructor-name">John Smith</div>
+                        <div class="instructor-role">Web Development Expert</div>
+                        <div class="instructor-stats">
+                            <span>👥 12,500 students</span>
+                            <span>⭐ 4.9</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Instructor 2 -->
+                <div class="instructor-card">
+                    <div class="instructor-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=350&fit=crop" alt="Dr. Sarah Johnson">
+                        <div class="instructor-socials">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">tw</a>
+                            <a href="#" class="social-link">fb</a>
+                        </div>
+                    </div>
+                    <div class="instructor-body">
+                        <div class="instructor-name">Dr. Sarah Johnson</div>
+                        <div class="instructor-role">Data Science Expert</div>
+                        <div class="instructor-stats">
+                            <span>👥 8,900 students</span>
+                            <span>⭐ 4.9</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Instructor 3 -->
+                <div class="instructor-card">
+                    <div class="instructor-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=350&fit=crop" alt="Michael Brown">
+                        <div class="instructor-socials">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">tw</a>
+                            <a href="#" class="social-link">fb</a>
+                        </div>
+                    </div>
+                    <div class="instructor-body">
+                        <div class="instructor-name">Michael Brown</div>
+                        <div class="instructor-role">UI/UX Design Expert</div>
+                        <div class="instructor-stats">
+                            <span>👥 6,700 students</span>
+                            <span>⭐ 4.8</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Instructor 4 -->
+                <div class="instructor-card">
+                    <div class="instructor-image">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=350&fit=crop" alt="Emily Davis">
+                        <div class="instructor-socials">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">tw</a>
+                            <a href="#" class="social-link">fb</a>
+                        </div>
+                    </div>
+                    <div class="instructor-body">
+                        <div class="instructor-name">Emily Davis</div>
+                        <div class="instructor-role">Marketing Expert</div>
+                        <div class="instructor-stats">
+                            <span>👥 5,200 students</span>
+                            <span>⭐ 4.7</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Instructor 5 -->
+                <div class="instructor-card">
+                    <div class="instructor-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=350&fit=crop" alt="David Chen">
+                        <div class="instructor-socials">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">tw</a>
+                            <a href="#" class="social-link">fb</a>
+                        </div>
+                    </div>
+                    <div class="instructor-body">
+                        <div class="instructor-name">David Chen</div>
+                        <div class="instructor-role">Python Expert</div>
+                        <div class="instructor-stats">
+                            <span>👥 10,800 students</span>
+                            <span>⭐ 4.9</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Instructor 6 -->
+                <div class="instructor-card">
+                    <div class="instructor-image">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=350&fit=crop" alt="Robert Wilson">
+                        <div class="instructor-socials">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">tw</a>
+                            <a href="#" class="social-link">fb</a>
+                        </div>
+                    </div>
+                    <div class="instructor-body">
+                        <div class="instructor-name">Robert Wilson</div>
+                        <div class="instructor-role">Business Expert</div>
+                        <div class="instructor-stats">
+                            <span>👥 4,500 students</span>
+                            <span>⭐ 4.8</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Instructor 7 -->
+                <div class="instructor-card">
+                    <div class="instructor-image">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=350&fit=crop" alt="Lisa Anderson">
+                        <div class="instructor-socials">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">tw</a>
+                            <a href="#" class="social-link">fb</a>
+                        </div>
+                    </div>
+                    <div class="instructor-body">
+                        <div class="instructor-name">Lisa Anderson</div>
+                        <div class="instructor-role">Mobile Dev Expert</div>
+                        <div class="instructor-stats">
+                            <span>👥 7,300 students</span>
+                            <span>⭐ 4.8</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Instructor 8 -->
+                <div class="instructor-card">
+                    <div class="instructor-image">
+                        <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=300&h=350&fit=crop" alt="James Taylor">
+                        <div class="instructor-socials">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">tw</a>
+                            <a href="#" class="social-link">fb</a>
+                        </div>
+                    </div>
+                    <div class="instructor-body">
+                        <div class="instructor-name">James Taylor</div>
+                        <div class="instructor-role">Cloud Expert</div>
+                        <div class="instructor-stats">
+                            <span>👥 5,800 students</span>
+                            <span>⭐ 4.9</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row g-4" id="instructorsGrid">
-                <!-- Instructors loaded via JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Join Section -->
-    <section class="py-5 bg-light">
-        <div class="container text-center" data-aos="zoom-in">
-            <h2 class="fw-bold mb-3">Become an Instructor</h2>
-            <p class="text-muted mb-4">Share your knowledge with thousands of students worldwide and make an impact.</p>
-            <a href="contact.html" class="btn btn-primary btn-lg rounded-pill px-5">Apply Now</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
+    <footer>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <a class="navbar-brand d-flex align-items-center mb-4" href="index.html">
-                        <div class="logo-icon me-2"><i class="fas fa-graduation-cap"></i></div>
-                        <span class="fw-bold fs-4">Edu<span class="text-primary">Pro</span></span>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">🎓</div>
+                        Edu<span>Pro</span>
                     </a>
-                    <p class="text-secondary">Learn from the best.</p>
+                    <p>Empowering students worldwide with quality education since 2020.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="courses.html">Courses</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div>
+                    <h4>Courses</h4>
+                    <a href="#">Web Development</a>
+                    <a href="#">Data Science</a>
+                    <a href="#">UI/UX Design</a>
+                    <a href="#">Marketing</a>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 5px;">📍 Kabul, Afghanistan</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 5px;">📧 info@edupro.academy</p>
+                    <p style="color: var(--text-secondary);">📞 +93 700 123 456</p>
                 </div>
             </div>
-            <hr class="my-4 border-secondary">
-            <p class="mb-0 text-center text-secondary">&copy; 2026 EduPro Academy. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>© 2026 EduPro Academy. All rights reserved.</p>
+            </div>
         </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        const instructorsData = [
-            {
-                name: 'John Smith',
-                title: 'Senior Web Developer',
-                bio: '10+ years of experience in web development. Former tech lead at Google.',
-                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
-                courses: 5,
-                students: 25000,
-                rating: 4.9,
-                expertise: ['JavaScript', 'React', 'Node.js']
-            },
-            {
-                name: 'Dr. Sarah Johnson',
-                title: 'Data Scientist',
-                bio: 'PhD in Machine Learning from MIT. AI researcher and consultant.',
-                image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face',
-                courses: 4,
-                students: 18000,
-                rating: 4.9,
-                expertise: ['Python', 'Machine Learning', 'Deep Learning']
-            },
-            {
-                name: 'Emily Davis',
-                title: 'UI/UX Designer',
-                bio: 'Award-winning designer with 8+ years experience. Worked with Fortune 500 companies.',
-                image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face',
-                courses: 3,
-                students: 12000,
-                rating: 4.8,
-                expertise: ['Figma', 'Adobe XD', 'UI Design']
-            },
-            {
-                name: 'Michael Brown',
-                title: 'Digital Marketing Expert',
-                bio: '15 years in digital marketing. Helped 100+ businesses grow online.',
-                image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face',
-                courses: 6,
-                students: 22000,
-                rating: 4.7,
-                expertise: ['SEO', 'Social Media', 'Analytics']
-            },
-            {
-                name: 'Alex Chen',
-                title: 'Mobile Developer',
-                bio: 'Full-stack mobile developer. Published 20+ apps on App Store.',
-                image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
-                courses: 4,
-                students: 15000,
-                rating: 4.8,
-                expertise: ['React Native', 'Flutter', 'iOS']
-            },
-            {
-                name: 'Dr. Lisa Wang',
-                title: 'Professor of Computer Science',
-                bio: 'Professor at Stanford. Research focus on artificial intelligence.',
-                image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face',
-                courses: 3,
-                students: 20000,
-                rating: 4.9,
-                expertise: ['AI', 'Machine Learning', 'Data Science']
-            }
-        ];
-
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({ duration: 800, once: true });
-            renderInstructors();
-        });
-
-        function renderInstructors() {
-            const container = document.getElementById('instructorsGrid');
-            container.innerHTML = instructorsData.map((instructor, i) => `
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="${i * 100}">
-                    <div class="card instructor-card border-0 shadow-sm h-100">
-                        <img src="${instructor.image}" alt="${instructor.name}" class="instructor-image w-100">
-                        <div class="card-body p-4 text-center">
-                            <h5 class="fw-bold mb-1">${instructor.name}</h5>
-                            <p class="text-primary mb-3">${instructor.title}</p>
-                            <p class="text-muted small mb-3">${instructor.bio}</p>
-                            <div class="d-flex flex-wrap justify-content-center gap-2 mb-3">
-                                ${instructor.expertise.map(skill => `<span class="badge bg-light text-dark">${skill}</span>`).join('')}
-                            </div>
-                            <div class="d-flex justify-content-around border-top pt-3">
-                                <div>
-                                    <strong>${instructor.courses}</strong>
-                                    <small class="text-muted d-block">Courses</small>
-                                </div>
-                                <div>
-                                    <strong>${(instructor.students / 1000).toFixed(0)}K</strong>
-                                    <small class="text-muted d-block">Students</small>
-                                </div>
-                                <div>
-                                    <strong class="text-warning">★</strong> ${instructor.rating}
-                                    <small class="text-muted d-block">Rating</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-    </script>
 </body>
 </html>
