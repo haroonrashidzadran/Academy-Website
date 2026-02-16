@@ -1,0 +1,14 @@
+# Robots.txt for EduPro Academy
+
+User-agent: *
+Allow: /
+
+Sitemap: https://haroonrashidzadran.github.io/Academy-Website/sitemap.xml
+
+# Disallow admin/private pages
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Crawl-delay for respecting server
+Crawl-delay: 10

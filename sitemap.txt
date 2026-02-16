@@ -1,0 +1,18 @@
+# EduPro Academy Website
+
+## Sitemap
+
+### Pages
+- `/` - Home Page
+- `/about.html` - About Us
+- `/courses.html` - All Courses
+- `/instructors.html` - Our Instructors
+- `/contact.html` - Contact Us
+- `/404.html` - Page Not Found
+
+### Technical
+- `/robots.txt` - Search engine robots file
+- `/sitemap.xml` - XML sitemap for search engines
+
+## Last Updated
+2026-02-16
