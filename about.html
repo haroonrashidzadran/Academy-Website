@@ -12,13 +12,13 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <div class="logo-icon me-2"><i class="fas fa-graduation-cap"></i></div>
                 <span class="fw-bold fs-4">Edu<span class="text-primary">Pro</span></span>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -43,6 +43,16 @@
             </div>
         </div>
     </section>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="py-3">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html" class="text-secondary">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">About Us</li>
+            </ol>
+        </div>
+    </nav>
 
     <!-- About Content -->
     <section class="py-5">
@@ -73,6 +83,38 @@
                 </div>
             </div>
 
+            <!-- Stats Bar -->
+            <div class="row g-4 text-center mb-5" data-aos="fade-up">
+                <div class="col-6 col-md-3">
+                    <div class="card p-4 border-0 shadow-sm">
+                        <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                        <h4 class="fw-bold">50,000+</h4>
+                        <p class="text-muted mb-0">Active Students</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card p-4 border-0 shadow-sm">
+                        <i class="fas fa-book fa-3x text-success mb-3"></i>
+                        <h4 class="fw-bold">500+</h4>
+                        <p class="text-muted mb-0">Courses</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card p-4 border-0 shadow-sm">
+                        <i class="fas fa-chalkboard-teacher fa-3x text-warning mb-3"></i>
+                        <h4 class="fw-bold">250+</h4>
+                        <p class="text-muted mb-0">Expert Instructors</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card p-4 border-0 shadow-sm">
+                        <i class="fas fa-certificate fa-3x text-info mb-3"></i>
+                        <h4 class="fw-bold">45,000+</h4>
+                        <p class="text-muted mb-0">Certificates Issued</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Values -->
             <div class="text-center mb-5" data-aos="fade-up">
                 <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3">Our Values</span>
@@ -80,7 +122,7 @@
                 <div class="row g-4">
                     <div class="col-md-4">
                         <div class="p-4">
-                            <div class="icon-box bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                            <div class="icon-box bg-primary-subtle rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
                                 <i class="fas fa-lightbulb fa-2x text-primary"></i>
                             </div>
                             <h4 class="fw-bold">Innovation</h4>
@@ -89,7 +131,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="p-4">
-                            <div class="icon-box bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                            <div class="icon-box bg-success-subtle rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
                                 <i class="fas fa-globe fa-2x text-success"></i>
                             </div>
                             <h4 class="fw-bold">Accessibility</h4>
@@ -98,11 +140,58 @@
                     </div>
                     <div class="col-md-4">
                         <div class="p-4">
-                            <div class="icon-box bg-warning bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                            <div class="icon-box bg-warning-subtle rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
                                 <i class="fas fa-star fa-2x text-warning"></i>
                             </div>
                             <h4 class="fw-bold">Excellence</h4>
                             <p class="text-muted">Maintaining the highest standards in content and delivery</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Us -->
+            <div class="row align-items-center mb-5" data-aos="fade-up">
+                <div class="col-lg-6 order-lg-2">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=400&fit=crop" alt="Why Choose Us" class="img-fluid rounded-4 shadow-lg">
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3">Why Choose Us</span>
+                    <h2 class="fw-bold mb-4">Learn from the Best</h2>
+                    <div class="d-flex align-items-start mb-3">
+                        <div class="bg-primary-subtle rounded p-2 me-3">
+                            <i class="fas fa-check text-primary"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Industry-Relevant Curriculum</h6>
+                            <p class="text-muted mb-0">Courses designed by experts from top companies</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-3">
+                        <div class="bg-primary-subtle rounded p-2 me-3">
+                            <i class="fas fa-check text-primary"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Hands-on Projects</h6>
+                            <p class="text-muted mb-0">Build real-world projects for your portfolio</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-3">
+                        <div class="bg-primary-subtle rounded p-2 me-3">
+                            <i class="fas fa-check text-primary"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Lifetime Access</h6>
+                            <p class="text-muted mb-0">Learn at your own pace, anytime, anywhere</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <div class="bg-primary-subtle rounded p-2 me-3">
+                            <i class="fas fa-check text-primary"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Certificate of Completion</h6>
+                            <p class="text-muted mb-0">Earn recognized certificates</p>
                         </div>
                     </div>
                 </div>
@@ -133,14 +222,24 @@
                             <p class="text-muted mb-0">Students successfully completed their courses</p>
                         </div>
                     </div>
-                    <div class="row align-items-center">
+                    <div class="row align-items-center mb-5">
                         <div class="col-md-6 text-md-end pe-5">
                             <h5 class="fw-bold fs-4">2024</h5>
                             <p class="text-muted mb-0">Reached 50,000+ students worldwide</p>
                         </div>
                         <div class="col-md-6 ps-5 border-start border-3 border-primary">
-                            <h5 class="fw-bold text-primary">2026 & Beyond</h5>
+                            <h5 class="fw-bold text-primary">2025</h5>
+                            <p class="text-muted mb-0">Launched mobile app and AI-powered learning</p>
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-6 text-md-end pe-5">
+                            <h5 class="fw-bold fs-4">2026 & Beyond</h5>
                             <p class="text-muted mb-0">Continuing to expand and innovate globally</p>
+                        </div>
+                        <div class="col-md-6 ps-5 border-start border-3 border-primary">
+                            <h5 class="fw-bold text-primary">100K+</h5>
+                            <p class="text-muted mb-0">Students by end of 2026</p>
                         </div>
                     </div>
                 </div>
@@ -158,7 +257,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
+    <footer class="pt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
