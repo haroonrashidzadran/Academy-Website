@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - EduPro Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="logo-icon me-2"><i class="fas fa-graduation-cap"></i></div>
+                <span class="fw-bold fs-4">Edu<span class="text-primary">Pro</span></span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="instructors.html">Instructors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-primary rounded-pill px-4 py-2" href="#">Enroll Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header text-white">
+        <div class="container">
+            <div class="text-center py-5" data-aos="fade-up">
+                <h1 class="display-4 fw-bold mb-3">Our Courses</h1>
+                <p class="lead opacity-75">Explore 200+ courses designed to boost your career</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Filters -->
+            <div class="row g-3 mb-5" data-aos="fade-up">
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0"><i class="fas fa-search text-muted"></i></span>
+                        <input type="text" class="form-control border-start-0" placeholder="Search courses..." id="searchInput">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="Development">Development</option>
+                        <option value="Data Science">Data Science</option>
+                        <option value="Design">Design</option>
+                        <option value="Marketing">Marketing</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" id="levelFilter">
+                        <option value="">All Levels</option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select class="form-select" id="sortFilter">
+                        <option value="popular">Most Popular</option>
+                        <option value="newest">Newest</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Results Count -->
+            <div class="mb-4" data-aos="fade-up">
+                <p class="text-muted mb-0">Showing <strong id="resultsCount">12</strong> courses</p>
+            </div>
+
+            <!-- Courses Grid -->
+            <div class="row g-4" id="allCourses">
+                <!-- Courses loaded via JavaScript -->
+            </div>
+
+            <!-- Load More -->
+            <div class="text-center mt-5" data-aos="fade-up">
+                <button class="btn btn-outline-primary btn-lg rounded-pill px-5" id="loadMoreBtn">Load More Courses</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <a class="navbar-brand d-flex align-items-center mb-4" href="index.html">
+                        <div class="logo-icon me-2"><i class="fas fa-graduation-cap"></i></div>
+                        <span class="fw-bold fs-4">Edu<span class="text-primary">Pro</span></span>
+                    </a>
+                    <p class="text-secondary">Learn. Grow. Succeed.</p>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <p class="mb-0 text-center text-secondary">&copy; 2026 EduPro Academy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Extended courses data
+        const allCoursesData = [
+            ...coursesData,
+            {
+                id: 7, title: 'AWS Cloud Practitioner Certification', category: 'Development', image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop', price: 44.99, oldPrice: 179.99, rating: 4.8, students: 4500, duration: '18 hours', level: 'Beginner', badge: 'Certification', badgeColor: 'bg-info', instructor: 'David Wilson'
+            },
+            {
+                id: 8, title: 'JavaScript Algorithms & Data Structures', category: 'Development', image: 'https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=400&h=250&fit=crop', price: 39.99, oldPrice: 159.99, rating: 4.9, students: 6200, duration: '28 hours', level: 'Intermediate', badge: null, badgeColor: null, instructor: 'Chris Anderson'
+            },
+            {
+                id: 9, title: 'Adobe Photoshop Mastery', category: 'Design', image: 'https://images.unsplash.com/photo-1542744094-24638eff58bb?w=400&h=250&fit=crop', price: 29.99, oldPrice: 129.99, rating: 4.7, students: 3800, duration: '20 hours', level: 'Beginner', badge: 'Popular', badgeColor: 'bg-warning text-dark', instructor: 'Anna Martinez'
+            },
+            {
+                id: 10, title: 'SEO & Google Analytics', category: 'Marketing', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop', price: 34.99, oldPrice: 149.99, rating: 4.6, students: 3200, duration: '15 hours', level: 'Beginner', badge: null, badgeColor: null, instructor: 'Tom Harris'
+            },
+            {
+                id: 11, title: 'Advanced React Patterns', category: 'Development', image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=250&fit=crop', price: 49.99, oldPrice: 199.99, rating: 4.9, students: 4100, duration: '25 hours', level: 'Advanced', badge: 'Expert', badgeColor: 'bg-dark', instructor: 'Sarah Lee'
+            },
+            {
+                id: 12, title: 'SQL & Database Management', category: 'Data Science', image: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=250&fit=crop', price: 29.99, oldPrice: 129.99, rating: 4.7, students: 5600, duration: '18 hours', level: 'Beginner', badge: 'Bestseller', badgeColor: 'bg-success', instructor: 'Mike Brown'
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({ duration: 800, once: true });
+            initAllCourses();
+            initFilters();
+        });
+
+        function initAllCourses() {
+            renderCourses(allCoursesData);
+        }
+
+        function renderCourses(courses) {
+            const container = document.getElementById('allCourses');
+            container.innerHTML = courses.slice(0, 6).map((course, i) => `
+                <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="${i * 100}">
+                    <div class="card course-card h-100 shadow-sm">
+                        ${course.badge ? `<span class="badge ${course.badgeColor} course-badge">${course.badge}</span>` : ''}
+                        <img src="${course.image}" alt="${course.title}" class="course-image w-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-light text-dark">${course.category}</span>
+                                <span class="badge ${course.level === 'Beginner' ? 'bg-success-subtle text-success' : course.level === 'Intermediate' ? 'bg-warning-subtle text-warning' : 'bg-danger-subtle text-danger'}">${course.level}</span>
+                            </div>
+                            <h5 class="card-title fw-bold mb-2 lh-base">${course.title}</h5>
+                            <p class="text-muted small mb-3">by ${course.instructor}</p>
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="text-warning"><i class="fas fa-star"></i> <strong>${course.rating}</strong></span>
+                                <span class="text-muted small ms-2">(${course.students.toLocaleString()})</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-3 text-muted small">
+                                <i class="far fa-clock me-2"></i><span>${course.duration}</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-3">
+                                <span class="course-price">$${course.price}</span>
+                                <button class="btn btn-primary btn-sm">Enroll Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function initFilters() {
+            const searchInput = document.getElementById('searchInput');
+            const categoryFilter = document.getElementById('categoryFilter');
+            const levelFilter = document.getElementById('levelFilter');
+
+            const applyFilters = () => {
+                let filtered = allCoursesData;
+                const search = searchInput?.value.toLowerCase() || '';
+                const category = categoryFilter?.value || '';
+                const level = levelFilter?.value || '';
+
+                if (search) filtered = filtered.filter(c => c.title.toLowerCase().includes(search));
+                if (category) filtered = filtered.filter(c => c.category === category);
+                if (level) filtered = filtered.filter(c => c.level === level);
+
+                renderCourses(filtered);
+                document.getElementById('resultsCount').textContent = filtered.length;
+            };
+
+            searchInput?.addEventListener('input', applyFilters);
+            categoryFilter?.addEventListener('change', applyFilters);
+            levelFilter?.addEventListener('change', applyFilters);
+        }
+    </script>
+</body>
+</html>
