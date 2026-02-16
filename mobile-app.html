@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile App - EduPro Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .app-showcase {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            padding: 100px 0;
+            overflow: hidden;
+        }
+        .phone-mockup {
+            position: relative;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        .phone-frame {
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            border-radius: 40px;
+            padding: 10px;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5);
+        }
+        .phone-screen {
+            background: #0f172a;
+            border-radius: 30px;
+            overflow: hidden;
+            aspect-ratio: 9/19;
+        }
+        .app-feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+        .download-badges img {
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+        .download-badges img:hover {
+            transform: scale(1.05);
+        }
+        .app-screenshot {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="logo-icon me-2"><i class="fas fa-graduation-cap"></i></div>
+                <span class="fw-bold fs-4">Edu<span class="text-primary">Pro</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="instructors.html">Instructors</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="mobile-app.html">Mobile App</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-primary rounded-pill px-4 py-2" href="#">Enroll Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- App Showcase -->
+    <section class="app-showcase text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3">
+                        <i class="fas fa-mobile-alt me-1"></i> Learn Anywhere
+                    </span>
+                    <h1 class="display-4 fw-bold mb-4">Learn on the Go with EduPro Mobile App</h1>
+                    <p class="lead text-secondary mb-4">Access thousands of courses, track your progress, and learn from anywhere in the world with our award-winning mobile app.</p>
+                    
+                    <div class="download-badges d-flex gap-3 mb-5">
+                        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store"></a>
+                        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store"></a>
+                    </div>
+
+                    <div class="d-flex gap-4">
+                        <div>
+                            <h3 class="fw-bold text-primary">10M+</h3>
+                            <p class="text-muted mb-0">Downloads</p>
+                        </div>
+                        <div>
+                            <h3 class="fw-bold text-primary">4.8</h3>
+                            <p class="text-muted mb-0">App Store Rating</p>
+                        </div>
+                        <div>
+                            <h3 class="fw-bold text-primary">4.7</h3>
+                            <p class="text-muted mb-0">Play Store Rating</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left">
+                    <div class="phone-mockup">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&h=600&fit=crop" alt="App Screen" class="w-100 h-100 object-fit-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3">Features</span>
+                <h2 class="fw-bold mb-3">Everything You Need to Learn</h2>
+                <p class="text-secondary lead mx-auto" style="max-width: 600px;">Our mobile app is packed with features designed to enhance your learning experience.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card h-100 p-4 text-center border-0 shadow-sm">
+                        <div class="app-feature-icon">
+                            <i class="fas fa-video fa-2x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Offline Learning</h5>
+                        <p class="text-muted mb-0">Download courses and learn without internet connection</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 p-4 text-center border-0 shadow-sm">
+                        <div class="app-feature-icon">
+                            <i class="fas fa-bell fa-2x text-success"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Smart Reminders</h5>
+                        <p class="text-muted mb-0">Never miss a lesson with personalized notifications</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 p-4 text-center border-0 shadow-sm">
+                        <div class="app-feature-icon">
+                            <i class="fas fa-chart-line fa-2x text-warning"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Progress Tracking</h5>
+                        <p class="text-muted mb-0">Track your learning journey with detailed analytics</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100 p-4 text-center border-0 shadow-sm">
+                        <div class="app-feature-icon">
+                            <i class="fas fa-comments fa-2x text-info"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Live Q&A</h5>
+                        <p class="text-muted mb-0">Get answers from instructors in real-time</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card h-100 p-4 text-center border-0 shadow-sm">
+                        <div class="app-feature-icon">
+                            <i class="fas fa-mobile-alt fa-2x text-danger"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Chromecast Support</h5>
+                        <p class="text-muted mb-0">Cast lessons to your TV for better viewing</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card h-100 p-4 text-center border-0 shadow-sm">
+                        <div class="app-feature-icon">
+                            <i class="fas fa-language fa-2x" style="color: #8b5cf6;"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Multi-Language</h5>
+                        <p class="text-muted mb-0">App available in 15+ languages</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Screenshots -->
+    <section class="py-5 bg-dark-card">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3">Screenshots</span>
+                <h2 class="fw-bold mb-3">See the App in Action</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-2 col-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="app-screenshot">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=200&h=400&fit=crop" alt="Screen 1" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="col-md-2 col-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="app-screenshot">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=200&h=400&fit=crop" alt="Screen 2" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="col-md-2 col-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="app-screenshot">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=200&h=400&fit=crop" alt="Screen 3" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="col-md-2 col-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="app-screenshot">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=400&fit=crop" alt="Screen 4" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3">Reviews</span>
+                <h2 class="fw-bold mb-3">What Learners Say</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card h-100 p-4 border-0 shadow-sm">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face" alt="User" class="rounded-circle me-3">
+                            <div>
+                                <h6 class="fw-bold mb-0">Ahmed K.</h6>
+                                <small class="text-muted">⭐⭐⭐⭐⭐</small>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">"The mobile app is amazing! I can learn during my commute. Offline mode is a lifesaver!"</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 p-4 border-0 shadow-sm">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&h=50&fit=crop&crop=face" alt="User" class="rounded-circle me-3">
+                            <div>
+                                <h6 class="fw-bold mb-0">Sara M.</h6>
+                                <small class="text-muted">⭐⭐⭐⭐⭐</small>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">"Best learning app I've ever used. The interface is beautiful and easy to navigate."</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 p-4 border-0 shadow-sm">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=50&h=50&fit=crop&crop=face" alt="User" class="rounded-circle me-3">
+                            <div>
+                                <h6 class="fw-bold mb-0">Omar R.</h6>
+                                <small class="text-muted">⭐⭐⭐⭐⭐</small>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">"Progress tracking keeps me motivated. I've completed 5 courses using this app!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <a class="navbar-brand d-flex align-items-center mb-4" href="index.html">
+                        <div class="logo-icon me-2"><i class="fas fa-graduation-cap"></i></div>
+                        <span class="fw-bold fs-4">Edu<span class="text-primary">Pro</span></span>
+                    </a>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <p class="mb-0 text-center text-secondary">&copy; 2026 EduPro Academy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
