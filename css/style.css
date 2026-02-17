@@ -780,3 +780,5 @@ a.text-primary:hover {
 .zoom-effect { overflow: hidden; border-radius: 12px; }
 .zoom-effect img { transition: transform 0.5s ease; width: 100%; }
 .zoom-effect:hover img { transform: scale(1.1); }
+/* Glow Effect on Focus */
+.glow-effect:focus-within { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); border-color: var(--primary-color); border-radius: 12px; padding: 1rem; }
