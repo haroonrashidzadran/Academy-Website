@@ -793,4 +793,10 @@ a.text-primary:hover {
          5 0 %   {   t r a n s f o r m :   s c a l e ( 1 . 0 5 ) ;   }  
  }  
  . p u l s e   {   a n i m a t i o n :   p u l s e   2 s   i n f i n i t e ;   }  
+ / *   F a d e   I n   U p   A n i m a t i o n   * /  
+ @ k e y f r a m e s   f a d e I n U p   {  
+         f r o m   {   o p a c i t y :   0 ;   t r a n s f o r m :   t r a n s l a t e Y ( 2 0 p x ) ;   }  
+         t o   {   o p a c i t y :   1 ;   t r a n s f o r m :   t r a n s l a t e Y ( 0 ) ;   }  
+ }  
+ . f a d e - i n - u p   {   a n i m a t i o n :   f a d e I n U p   0 . 6 s   e a s e   f o r w a r d s ;   }  
  
