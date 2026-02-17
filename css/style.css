@@ -782,3 +782,5 @@ a.text-primary:hover {
 .zoom-effect:hover img { transform: scale(1.1); }
 /* Glow Effect on Focus */
 .glow-effect:focus-within { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); border-color: var(--primary-color); border-radius: 12px; padding: 1rem; }
+/* Gradient Text Effect */
+.gradient-text { background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
